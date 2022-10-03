@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ItemService } from './services/itemService/item.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +8,9 @@ import { ItemService } from './services/itemService/item.service';
 export class AppComponent {
   title = 'TarkyBot';
 
-  constructor( private ItemsService:ItemService ) {}
+  constructor() { }
 
-  ngOnInit() {
-    this.ItemService();
-  }
+  ngOnInit(): void {  }
 
-
-  ItemService() {
-    this.ItemsService.getItem('m995');
-
-
-
-  }
 }
+
