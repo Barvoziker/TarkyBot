@@ -1,16 +1,35 @@
-.main_container {
-    background-color: black
-}
-
 h1 {
     color: white;
-    font-family: Bender;
-    font-size: 3em;
+    font-size: 2em;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
+.main_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p {
+    color: white;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.types {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+img {
+    justify-content: center;
+}
+
 .item_container {
     color: white;
+    text-align: center;
 }

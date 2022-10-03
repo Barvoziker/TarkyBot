@@ -4,6 +4,7 @@ export class items {
         public name: string,
         public shortName: string,
         public description: string,
-        public image512pxLink: string
+        public types: string[],
+        public iconLink: string
     ){}
 }
