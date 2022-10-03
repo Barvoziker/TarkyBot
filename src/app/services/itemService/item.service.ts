@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../apiService/api.service';
+import { request, gql } from 'graphql-request'
+import { items } from 'src/app/models/items.models';
 
 
 @Injectable({
@@ -7,31 +8,25 @@ import { ApiService } from '../apiService/api.service';
 })
 export class ItemService {
 
-  constructor(private apiService: ApiService) { }
+  constructor() { }
+
+  ItemsTab: items[] = [];
 
   getItem(name:string){
-    return this.apiService.doPost({
-      query: `query {
-        item(name: "${name}") {
+
+    const query = gql`
+    query {
+      items(name: "${name}") {
           id
           name
           shortName
           description
-          image
-          wikiLink
-          wikiImage
-          wikiImageLarge
-          type
-          rarity
-          basePrice
-          traderPrice
-          traderName
-          traderPriceCur
-          updated
-          slots
-          weight
-        }
-      }`
-    });
+          image512pxLink
+      }
+    }`
+
+    request('https://api.tarkov.dev/graphql', query).then(data => console.log(data));
+
   }
+
 }

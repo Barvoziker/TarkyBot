@@ -17,8 +17,9 @@ export class AppComponent {
 
 
   ItemService() {
-    this.ItemsService.getItem('5.45x39mm PS').subscribe((data: any) => {
-      console.log(data);
-    });
+    this.ItemsService.getItem('m995');
+
+
+
   }
 }
