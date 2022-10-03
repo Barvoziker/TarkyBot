@@ -1,7 +1,7 @@
-<div *ngFor="let items of ItemsTab">
-
-    <h1>{{items.name}}</h1>
-    <p>{{items.description}}</p>
-    <img src="{{items.image512pxLink}}" />
-
+<div class="main_container">
+    <div class="item_container" *ngFor="let items of ItemsTab">
+        <h1>{{items.name}}</h1>
+        <p>{{items.description}}</p>
+        <img src="{{items.image512pxLink}}" />
+    </div>
 </div>

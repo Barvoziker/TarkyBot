@@ -1,20 +1,18 @@
+@import url('http://fonts.cdnfonts.com/css/bender');
 header {
     display: flex;
     background-color: black;
     color: white;
     height: 10%;
+    border-bottom: #5e533e solid 1px;
 }
 
-.class_LogoHeader {
+.Title {
+    font-family: Bender;
     display: flex;
     margin: 0.5vh;
-    width: 16vh;
     height: auto;
-}
-
-img {
-    width: 100%;
-    height: auto;
+    color: #9a8866;
 }
 
 a {
@@ -28,7 +26,9 @@ a:hover {
 }
 
 .Items {
+    font-family: 'Bender';
     font-size: larger;
     align-self: center;
     margin-left: 7em;
+    font-weight: bold;
 }
