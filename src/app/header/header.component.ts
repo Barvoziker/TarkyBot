@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { request, gql } from 'graphql-request'
+import { request, gql } from 'graphql-request';
 import { typeItems } from '../models/typeItems.models';
-
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   typesTab: typeItems[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.getAllTypes();
@@ -20,23 +18,26 @@ export class HeaderComponent implements OnInit {
 
   getAllTypes() {
     const query = gql`
-    query  {
-      items (name: "Water Bottle") {
+      query {
+        items {
           types
+        }
       }
-    }`
+    `;
 
-    request('https://api.tarkov.dev/graphql', query).then(data => {
-      data.items.forEach((type: typeItems) => {
+    request('https://api.tarkov.dev/graphql', query).then((data) => {
+      for (let i = 0; i < data.items.length; i++) {
+        //find if the type is already in the array
+        let index = this.typesTab.findIndex(
+          (type) => type.types[0] === data.items[i].types[0]
+        );
 
+        if (index == -1) {
 
+          this.typesTab.push({ types: data.items[i].types.splice(0, 1)});
+        }
+      }
 
-
-        this.typesTab.push({types: type.types});
-
-
-
-      });
       console.log(this.typesTab);
     });
   }
