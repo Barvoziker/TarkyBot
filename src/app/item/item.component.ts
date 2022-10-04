@@ -16,12 +16,12 @@ export class ItemComponent implements OnInit {
 
 
   ngOnInit() {
-    this.ItemService();
+    this.ItemGetAll();
   }
 
   constructor() { }
 
-  ItemService() {
+  ItemGetAll() {
     const query = gql`
     query  {
       items (name: "Water Bottle") {
