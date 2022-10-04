@@ -33,12 +33,13 @@ export class HeaderComponent implements OnInit {
         );
 
         if (index == -1) {
-
           this.typesTab.push({ types: data.items[i].types.splice(0, 1)});
         }
       }
+      this.typesTab.splice(19);
 
       console.log(this.typesTab);
+      console.log(this.typesTab[19])
     });
   }
 }

@@ -30,3 +30,12 @@ a:hover {
     margin-left: 7em;
     font-weight: bold;
 }
+
+.itemName {
+    text-transform: capitalize;
+}
+
+.typeContainer {
+    list-style: none;
+    display: none;
+}
