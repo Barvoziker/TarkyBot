@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
 
     request('https://api.tarkov.dev/graphql', query).then((data) => {
       for (let i = 0; i < data.items.length; i++) {
-        //find if the type is already in the array
         let index = this.typesTab.findIndex(
           (type) => type.types[0] === data.items[i].types[0]
         );
@@ -37,9 +36,6 @@ export class HeaderComponent implements OnInit {
         }
       }
       this.typesTab.splice(19);
-
-      console.log(this.typesTab);
-      console.log(this.typesTab[19])
     });
   }
 }

@@ -2,14 +2,13 @@ header {
     display: flex;
     background-color: black;
     color: white;
-    height: 10%;
+    height: 5em;
     border-bottom: #5e533e solid 1px;
 }
 
 .Title {
     font-family: Bender;
     display: flex;
-    margin: 0.5vh;
     height: auto;
     color: #9a8866;
 }
@@ -20,12 +19,8 @@ a {
     color: #9a8866;
 }
 
-a:hover {
-    color: #5e533e
-}
-
 .Items {
-    font-size: larger;
+    font-size: 1em;
     align-self: center;
     margin-left: 7em;
     font-weight: bold;
@@ -35,7 +30,59 @@ a:hover {
     text-transform: capitalize;
 }
 
-.typeContainer {
+nav ul {
+    padding: 0;
+    margin: 0;
     list-style: none;
+    position: relative;
+}
+
+nav {
+    display: inline-block;
+}
+
+nav a {
+    display: block;
+    padding: 0 10px;
+    color: #9a8866;
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+
+/* Hide Dropdowns by Default */
+
+nav ul ul {
     display: none;
+    position: absolute;
+    top: 30px;
+    /* the height of the main nav */
+}
+
+
+/* Display Dropdowns on Hover */
+
+nav ul li:hover>ul {
+    display: inherit;
+    background-color: #373024;
+    border-radius: 3%;
+}
+
+
+/* Fisrt Tier Dropdown */
+
+nav ul ul li {
+    width: 170px;
+    float: none;
+    display: list-item;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #5e533e;
+}
+
+h1 {
+    align-self: center;
 }

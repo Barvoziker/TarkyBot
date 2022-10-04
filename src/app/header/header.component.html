@@ -4,14 +4,21 @@
     </div>
 
     <div class="Items">
-        <ul class="typeMainContainer">
-            <a routerLink="items">Items</a>
-            <ul class="typeContainer">
-                <li *ngFor="let type of typesTab"><a class="itemName">{{type.types}}</a></li>
+        <nav class="Navigation">
+            <ul class="MainList">
+                <li class="listTypes">
+                    <a routerLink="items">Items</a>
+                    <ul>
+                        <li *ngFor="let type of typesTab"><a class="itemName">{{type.types}}</a></li>
+                    </ul>
+                </li>
             </ul>
-        </ul>
-
+        </nav>
     </div>
+
+
+
+
 
 </header>
 
