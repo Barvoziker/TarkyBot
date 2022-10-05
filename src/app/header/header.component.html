@@ -1,15 +1,28 @@
 <header>
     <div class="Title">
-        <h1> TarkyBot </h1>
+        <h1 class="HeaderTitle"> TarkyBot </h1>
     </div>
 
-    <div class="Items">
-        <nav class="Navigation">
-            <ul class="MainList">
-                <li class="listTypes">
-                    <a routerLink="items">Items</a>
+    <div class="Dropdown_Menu">
+        <nav>
+            <ul>
+                <li>
+                    <a>Items</a>
                     <ul>
-                        <li *ngFor="let type of typesTab"><a class="itemName">{{type.types}}</a></li>
+                        <li *ngFor="let type of typesTab"><a class="Dropdown_Name" routerLink="items">{{type.types}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="Dropdown_Menu">
+        <nav>
+            <ul>
+                <li>
+                    <a>Traders</a>
+                    <ul>
+                        <li *ngFor="let traders of tradersTab"><a class="Dropdown_Name">{{traders.name}}</a></li>
                     </ul>
                 </li>
             </ul>
