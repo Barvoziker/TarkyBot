@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { request, gql } from 'graphql-request'
 import { items } from 'src/app/models/items.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -8,6 +9,8 @@ import { items } from 'src/app/models/items.models';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
+
+  id: string = this.router.url.substring(this.router.url.lastIndexOf('/') + 1);
 
   ItemsTab: items[] = [];
 
@@ -19,7 +22,7 @@ export class ItemComponent implements OnInit {
     this.ItemGetAll();
   }
 
-  constructor() { }
+  constructor( private router : Router ) { }
 
   ItemGetAll() {
     const query = gql`

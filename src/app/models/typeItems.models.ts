@@ -1,5 +1,6 @@
 export class typeItems {
   constructor(
-      public types: string[],
+    public id: string,
+    public types: string[],
   ){}
 }

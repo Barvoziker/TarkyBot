@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   requestURL :string = "https://api.tarkov.dev/graphql";
 
-  constructor() {}
+  constructor( private router : Router ) {}
 
   ngOnInit(): void {
     this.getAllTypes();
@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
     const query = gql`
       query {
         items {
+          id
           types
         }
       }
@@ -44,7 +45,7 @@ export class HeaderComponent implements OnInit {
         );
 
         if (index == -1) {
-          this.typesTab.push({ types: data.items[i].types.splice(0, 1)});
+          this.typesTab.push({ id: data.items[i].id, types: data.items[i].types.splice(0, 1)});
         }
       }
       this.typesTab.splice(19);
@@ -93,4 +94,13 @@ export class HeaderComponent implements OnInit {
       );
     });
   }
+
+
+  getIdTypes( $key : string){
+    // console.log($key);
+    //bring in memory the id of the type
+    this.router.navigate(['/items', $key]);
+  }
+
+
 }
