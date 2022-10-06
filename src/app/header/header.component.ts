@@ -3,6 +3,7 @@ import { request, gql } from 'graphql-request';
 import { typeItems } from '../models/typeItems.models';
 import { traders } from '../models/traders.models';
 import { maps } from '../models/maps.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -73,6 +74,9 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  /**
+   * It queries the server for all the maps, and then adds them to the mapsTab array
+   */
   getAllMaps(){
     const query = gql`
       query {
@@ -89,9 +93,4 @@ export class HeaderComponent implements OnInit {
       );
     });
   }
-
-
-
-
-
 }
