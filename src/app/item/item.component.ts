@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ItemComponent implements OnInit {
 
-  id: string = this.router.url.substring(this.router.url.lastIndexOf('/') + 1);
+  typeName: string = this.router.url.substring(this.router.url.lastIndexOf('/') +1);
 
   ItemsTab: items[] = [];
 
@@ -27,7 +27,7 @@ export class ItemComponent implements OnInit {
   ItemGetAll() {
     const query = gql`
     query  {
-      items (name: "Water Bottle") {
+      items (types: ${this.typeName}) {
           id
           name
           shortName

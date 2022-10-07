@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
         );
 
         if (index == -1) {
-          this.typesTab.push({ id: data.items[i].id, types: data.items[i].types.splice(0, 1)});
+          this.typesTab.push({types: data.items[i].types.splice(0, 1)});
         }
       }
       this.typesTab.splice(19);
@@ -96,10 +96,9 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  getIdTypes( $key : string){
-    // console.log($key);
-    //bring in memory the id of the type
+  getNameTypes( $key : string){
     this.router.navigate(['/items', $key]);
+
   }
 
 
