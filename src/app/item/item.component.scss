@@ -9,6 +9,7 @@ h1 {
 .main_container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 p {
@@ -32,4 +33,9 @@ img {
 .item_container {
     color: white;
     text-align: center;
+}
+
+img:hover {
+    transform: scale(1.5);
+    transition: 0.5s;
 }
