@@ -9,7 +9,7 @@
                 <li>
                     <a>Items</a>
                     <ul>
-                        <li *ngFor="let type of typesTab"><a class="Dropdown_Name" routerLink="items">{{type.types}}</a></li>
+                        <li *ngFor="let type of typesTab"><a class="Dropdown_Name" routerLink="items" (click)="getNameTypes(type.types[0])">{{type.types}}</a></li>
                     </ul>
                 </li>
             </ul>

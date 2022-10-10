@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { request, gql } from 'graphql-request'
 import { items } from 'src/app/models/items.models';
+import { Router, Event, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -9,22 +10,39 @@ import { items } from 'src/app/models/items.models';
 })
 export class ItemComponent implements OnInit {
 
+  typeName: string = this.router.url.substring(this.router.url.lastIndexOf('/') +1);
+
   ItemsTab: items[] = [];
+  currentRoute: string;
 
-  // BartersItemsTab: items[] = [];
-  // RationItemsTab: items[] = [];
 
+  constructor( private router : Router ) {
+
+    this.currentRoute = "";
+    this.router.events.subscribe((event: Event) => {
+        if (event instanceof NavigationStart) {
+
+          if (event.url == "/items") {
+            return;
+          }else{
+            console.log(event.url.substring(event.url.lastIndexOf('/') +1));
+            this.typeName = event.url.substring(event.url.lastIndexOf('/') +1);
+            this.ItemsTab = [];
+            this.ItemGetAll(this.typeName);
+          }
+        }
+      });
+    }
 
   ngOnInit() {
-    this.ItemGetAll();
+    this.ItemGetAll(this.typeName);
   }
 
-  constructor() { }
 
-  ItemGetAll() {
+  ItemGetAll(typeName: string) {
     const query = gql`
     query  {
-      items (name: "Water Bottle") {
+      items (types: ${typeName}) {
           id
           name
           shortName
@@ -37,18 +55,8 @@ export class ItemComponent implements OnInit {
     request('https://api.tarkov.dev/graphql', query).then(data => {
       data.items.forEach((item: items) => {
         this.ItemsTab.push({id: item.id, name:item.name, shortName: item.shortName, description: item.description, types: item.types, iconLink: item.iconLink});
-
-        // if(item.types[0] = "Barters"){
-        //   this.BartersItemsTab.push(item);
-        //   console.log(this.BartersItemsTab);
-        // }else if(item.types[0] = "Ration"){
-        //   this.RationItemsTab.push(item);
-        //   console.log(this.RationItemsTab);
-        // }else {
-        //   this.ItemsTab.push(item);
-        // }
-
       });
     });
   }
 }
+
