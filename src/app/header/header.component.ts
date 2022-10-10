@@ -98,7 +98,6 @@ export class HeaderComponent implements OnInit {
 
   getNameTypes( $key : string){
     this.router.navigate(['/items', $key]);
-
   }
 
 
