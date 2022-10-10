@@ -1,7 +1,5 @@
 <div class="main_container">
     <div class="item_container" *ngFor="let items of ItemsTab" ngbPopover="{{items.description}}" triggers="mouseenter:mouseleave" popoverTitle="{{items.name}}">
-
         <img src="{{items.iconLink}}" />
-
     </div>
 </div>

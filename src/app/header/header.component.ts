@@ -68,7 +68,7 @@ export class HeaderComponent implements OnInit {
 
     request(this.requestURL, query).then((data) => {
       data.traders.forEach((trader : traders) => {
-        this.tradersTab.push({name: trader.name});
+        this.tradersTab.push({name: trader.name, description: trader.description});
       }
       );
     });
@@ -96,8 +96,12 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  getNameTypes( $key : string){
-    this.router.navigate(['/items', $key]);
+  getNameTypes( nameTypes : string){
+    this.router.navigate(['/items', nameTypes]);
+  }
+
+  getNameTraders( nameTraders : string){
+    this.router.navigate(['/traders', nameTraders]);
   }
 
 

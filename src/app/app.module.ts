@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { TraderComponent } from './trader/trader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TraderComponent
   ],
   imports: [
     BrowserModule,

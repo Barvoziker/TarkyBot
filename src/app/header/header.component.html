@@ -22,7 +22,7 @@
                 <li>
                     <a>Traders</a>
                     <ul>
-                        <li *ngFor="let traders of tradersTab"><a class="Dropdown_Name">{{traders.name}}</a></li>
+                        <li *ngFor="let traders of tradersTab"><a class="Dropdown_Name" routerLink="traders" (click)="getNameTraders(traders.name)">{{traders.name}}</a></li>
                     </ul>
                 </li>
             </ul>

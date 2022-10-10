@@ -25,7 +25,6 @@ export class ItemComponent implements OnInit {
           if (event.url == "/items") {
             return;
           }else{
-            console.log(event.url.substring(event.url.lastIndexOf('/') +1));
             this.typeName = event.url.substring(event.url.lastIndexOf('/') +1);
             this.ItemsTab = [];
             this.ItemGetAll(this.typeName);

@@ -1,0 +1,5 @@
+<div class="main_container">
+    <div class="item_container" *ngFor="let trader of TradersTab" ngbPopover="{{trader.description}}" triggers="mouseenter:mouseleave" popoverTitle="{{trader.name}}">
+        <p>{{trader.name}}</p>
+    </div>
+</div>
